@@ -9,3 +9,12 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
+
+  upgrade-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pocket-apps/action-update-version@v1
+        with:
+          files: 'package.json, app.yaml'
+          version-regexp: '\d+.\d+.\d+'
